@@ -6,37 +6,46 @@ source ./utils.sh
 # Python installationS
 # ====================
 
-e_header "Installing various versions of python"
+e_header "Installing various versions of Python and pipenv"
 
+
+# Installing pyenv
 if pyenv --version; then
-  # For compilers to find zlib you may need to set:
-  export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
-  export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+  e_header "Installing pyenv environment in .zshrc"
+  (
+    echo;
+    echo '# pyenv';
+    echo 'export PYENV_ROOT="$HOME/.pyenv"';
+    echo '[[ -d "${PYENV_ROOT}/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"';
+    echo 'eval "$(pyenv init -)"'
+  ) >> ~/.zshrc
+  pyenv install 3.13
+  pyenv install pypy3.10-7.3.17
+  pyenv global 3.13
+  e_success "Python versions installed! (see with pyenv versions)"
 
-  # For pkg-config to find zlib you may need to set:
-  export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
+  e_header "Installing pipenv"
+  pip install pipenv --user
+  (
+    echo;
+    echo '# pipenv';
+    echo 'export PIPENV_BIN="$HOME/.local/bin"';
+    echo 'command -v pipenv >/dev/null || export PATH="$PIPENV_BIN:$PATH"'
+  ) >> ~/.zshrc
 
-  # Because of old python version
-  #CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 2.7.8
-  pyenv install 2.7.17
-  pyenv install 3.8.2
-  pyenv global 3.8.2
-  # Ideas taken from the article https://opensource.com/article/19/5/python-3-default-mac
-  echo -e '\n# ======\n# Python\n# ======\nif command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshenv
-  e_success "Done!"
+  e_success "pipenv installed!"
 else
   e_error "Failed to install python versions"
 fi
 
-# ===========================
-# Virtual environment handler
-# ===========================
+python_libs=(
+  ruff
+  uv
+  mypy
+  tox
+  pytest
+)
 
-# e_header "Installing virtualenvwrapper"
-#
-# if pip install virtualenvwrapper; then
-#   echo -e '\nexport VIRTUALENVWRAPPER_PYTHON=$HOME/.pyenv/shims/python\nexport WORKON_HOME=$HOME/.virtualenvs\nsource "/Users/qducasse/.pyenv/versions/3.8.2/bin/virtualenvwrapper.sh"' >> ~/.zshenv
-#   e_success "Done!"
-# else
-#   e_error "Failed to install virtualenvwrapper"
-# fi
+for python_lib in "${python_libs[@]}"; do
+  pip install $python_lib --user
+done

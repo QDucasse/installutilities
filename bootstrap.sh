@@ -2,8 +2,11 @@
 
 source ./utils.sh
 
-# Make the user-relative bin folder to install things to
-mkdir -p ~/bin
+# Read name and email input
+echo "Enter your full name (e.g. John Doe):"
+read -r user_name
+echo "Enter your email address (e.g. john.doe@mail.com):"
+read -r user_email
 
 if [ $(command -v brew) ]; then
   e_arrow 'homebrew is already installed!'
@@ -22,13 +25,6 @@ fi
 source ./install/oh-my-zsh-plugins.sh
 
 echo ""
-echo "Install mac apps?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/mas.sh
-fi
-
-echo ""
 echo "Install brew utilities?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -43,13 +39,6 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
-echo "Install ruby and versions?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/ruby.sh
-fi
-
-echo ""
 echo "Install python and versions?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -57,42 +46,26 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
-echo "Install Go and latest version?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/go.sh
-fi
-
-echo ""
-echo "Install node and nvm?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/node.sh
-fi
-
-echo ""
-echo "Install npm?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/npm.sh
-fi
-
-echo ""
 echo "Install git config?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/git.sh
+  source ./install/git.sh "$user_name" "$user_email"
 fi
 
 echo ""
-echo "Install fonts?  (y/n)"
+echo "Generate new ssh key?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  source ./install/fonts.sh
+  source ./install/ssh.sh "$user_name" "$user_email"
 fi
 
-for app in "Activity Monitor" "cfprefsd" \
-  "Dock" "Finder" "Google Chrome" "Messages" \
-  "Spectacle" "SystemUIServer"; do
+echo ""
+echo "Generate new gpg key?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/gpg.sh "$user_name" "$user_email"
+fi
+
+for app in "Activity Monitor" "cfprefsd" "Dock" "Finder" "Spectacle" "SystemUIServer"; do
   killall "${app}" &> /dev/null
 done
