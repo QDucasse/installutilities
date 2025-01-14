@@ -15,6 +15,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
 e_arrow "Public key:"
 cat ~/.ssh/id_ed25519.pub
+e_arrow "Add the above public key to your GitHub account!"
 
 
 e_success "SSH key created and added to the Keychain!"

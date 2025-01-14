@@ -13,6 +13,7 @@ key_id=$(gpg --list-secret-keys --keyid-format=long | grep 'sec' | awk '{print $
 
 e_arrow "Public key:"
 gpg --armor --export $key_id
+e_arrow "Add the above public key to your GitHub account!"
 
 # Configure git
 git config --global user.signingkey $key_id
