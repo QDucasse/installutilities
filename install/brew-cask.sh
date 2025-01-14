@@ -18,6 +18,7 @@ apps=(
   docker
   firefox
   flycut
+  gpg-suite
   iterm2
   libreoffice
   mactex
