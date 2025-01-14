@@ -20,6 +20,7 @@ binaries=(
   llvm                                  # LLVM compiler infrastructure
   neovim                                # vim with a lot more features
   ninja                                 # build system
+  pinentry-mac                          # pops a dialog for entering passphrases for GPG
   pyenv                                 # python versions manager
   qemu                                  # emulator
   rustup-init                           # rust toolchain installer
