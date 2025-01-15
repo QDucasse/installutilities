@@ -25,6 +25,7 @@ apps=(
   mattermost
   microsoft-office
   microsoft-teams
+  nextcloud
   obs
   signal
   the-unarchiver

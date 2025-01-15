@@ -35,7 +35,7 @@ echo 'use-agent' > ~/.gnupg/gpg.conf
 (
     echo;
     echo "# GPG";
-    echo "export GPG_TTY=$(tty)";
+    echo 'export GPG_TTY=$(tty)';
 ) >> ${HOME}/.zshrc
 
 # Restart the daemon

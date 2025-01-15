@@ -30,9 +30,10 @@ plugins=(
 for plugin in "${plugins[@]}"; do
     if [ ! -d "${ZSH_CUSTOM}/plugins/$plugin" ]; then
         git clone https://github.com/zsh-users/$plugin.git "${ZSH_CUSTOM}/plugins/$plugin"
+
     else
         e_arrow "$plugin is already installed!"
     fi
 done
 
-e_success "Done!"
+e_success "Done! (Activate the plugins in .zshrc with plugins=(...))"
