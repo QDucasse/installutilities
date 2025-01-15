@@ -38,6 +38,7 @@ else
   e_error "Failed to install python versions"
 fi
 
+# Globally installed python libs
 python_libs=(
   ruff
   uv
@@ -49,3 +50,5 @@ python_libs=(
 for python_lib in "${python_libs[@]}"; do
   pip install $python_lib --user
 done
+
+e_success "Main python libs installed!"
