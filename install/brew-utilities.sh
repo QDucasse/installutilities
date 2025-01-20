@@ -12,6 +12,7 @@ binaries=(
   curl                                  # up-to-date version of curl
   ffmpeg                                # streaming media editing tool
   git                                   # up-to-date version of git
+  git-ignore                            # gitignore templates
   ghidra                                # reverse engineering
   gnupg                                 # GNU PGP key tools
   haskell-stack                         # haskell build tool

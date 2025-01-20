@@ -40,11 +40,12 @@ fi
 
 # Globally installed python libs
 python_libs=(
-  ruff
-  uv
-  mypy
-  tox
-  pytest
+  ruff       # linter
+  uv         # package/venv manager (when ditching pipenv one day)
+  mypy       # static type annotations
+  tox        # venv automation
+  pytest     # unit tests
+  Pygments   # latex minted
 )
 
 for python_lib in "${python_libs[@]}"; do

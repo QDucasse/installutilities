@@ -28,6 +28,8 @@ apps=(
   nextcloud
   obs
   signal
+  tailscale
+  temurin
   the-unarchiver
   visual-studio-code
   vlc
