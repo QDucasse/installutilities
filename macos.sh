@@ -48,7 +48,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -80,7 +80,7 @@ sudo chflags nohidden /Volumes
 ###############################################################################
 
 # Set icon size on desktop to 36
-defaults write com.apple.finder DesktopViewSettings -dict IconSize 36
+defaults write com.apple.finder DesktopViewSettings -dict IconSize 24
 
 # Stack by kind
 defaults write com.apple.finder _FXSortFoldersFirst -bool true

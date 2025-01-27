@@ -27,6 +27,7 @@ apps=(
   microsoft-teams
   nextcloud
   obs
+  ollama
   signal
   tailscale
   temurin
