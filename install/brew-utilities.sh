@@ -18,9 +18,9 @@ binaries=(
   haskell-stack                         # haskell build tool
   htop                                  # the best process monitor
   imagemagick                           # another image processor
-  llvm                                  # LLVM compiler infrastructure
   neovim                                # vim with a lot more features
   ninja                                 # build system
+  nvm                                   # node version manager
   pinentry-mac                          # pops a dialog for entering passphrases for GPG
   pyenv                                 # python versions manager
   qemu                                  # emulator
@@ -32,11 +32,11 @@ binaries=(
   wget                                  # up-to-date wget
 )
 
+# TODO: Maybe move the version managers of some languages inside their corresponding files.
+
 e_arrow "Installing brew packages"
 
-for binary in "${binaries[@]}"; do
-  brew install $binary
-done
+brew install "${binaries[@]}"
 
 brew cleanup
 

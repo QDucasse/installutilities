@@ -48,8 +48,6 @@ python_libs=(
   Pygments   # latex minted
 )
 
-for python_lib in "${python_libs[@]}"; do
-  pip install $python_lib --user
-done
+pip install "${python_libs[@]}" --user
 
 e_success "Main python libs installed!"

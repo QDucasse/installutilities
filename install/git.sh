@@ -23,6 +23,6 @@ git config --global alias.lastchange 'log -p --follow -n 1'
 
 # Default gitignore for macos
 git-ignore macos > ${HOME}/.gitignore
-git config --global core.excludesFile '${HOME}/.gitignore'
+git config --global core.excludesFile '~/.gitignore'
 
 e_success "Done!"

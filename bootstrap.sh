@@ -39,18 +39,26 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
-echo "Install python and versions?  (y/n)"
+echo "Install python runtime?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   source ./install/python.sh
 fi
 
 echo ""
-echo "Install ruby and versions?  (y/n)"
+echo "Install ruby runtime?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
   source ./install/ruby.sh
 fi
+
+echo ""
+echo "Install javascript runtime?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  source ./install/javascript.sh
+fi
+
 
 echo ""
 echo "Install git config?  (y/n)"

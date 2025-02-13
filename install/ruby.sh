@@ -27,8 +27,6 @@ ruby_gems=(
   rails
 )
 
-for ruby_gem in "${ruby_gems[@]}"; do
-  gem install $ruby_gem
-done
+gem install "${ruby_gems[@]}"
 
 e_success "Main ruby gems installed!"
