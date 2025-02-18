@@ -11,6 +11,7 @@ binaries=(
   coreutils                             # gnu coreutils
   curl                                  # up-to-date version of curl
   ffmpeg                                # streaming media editing tool
+  fzf                                   # fuzzy command line finder
   git                                   # up-to-date version of git
   git-ignore                            # gitignore templates
   ghidra                                # reverse engineering
@@ -35,6 +36,17 @@ binaries=(
 # TODO: Maybe move the version managers of some languages inside their corresponding files.
 
 e_arrow "Installing brew packages"
+
+# Setting up shell integration if needed
+# For pyenv/rbenv/nvm, done in their respective files
+if fzf --version; then
+  e_header "Installing fzf support in .zshrc"
+  (
+    echo;
+    echo '# fzf';
+    echo 'source <(fzf --zsh)';
+  ) >> ~/.zshrc
+fi
 
 brew install "${binaries[@]}"
 
