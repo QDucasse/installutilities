@@ -4,13 +4,38 @@ source ./utils.sh
 
 e_header "Setting some git config defaults"
 
+# User basics
 git config --global user.name "$1"
 git config --global user.email "$2"
+
+# Branches/tags
 git config --global init.defaultBranch main
-git config --global color.diff-highlight.oldNormal "red bold"
-git config --global color.diff-highlight.oldHighlight "red bold 52"
-git config --global color.diff-highlight.newNormal "green bold"
-git config --global color.diff-highlight.newHighlight "green bold 22"
+git config --global column.ui auto
+git config --global branch.sort -committerdate
+git config --global tag.sort version:refname
+
+# Diffs
+git config --global color.diff-highlight.oldnormal=red bold
+git config --global color.diff-highlight.oldhighlight=red bold 52
+git config --global color.diff-highlight.newnormal=green bold
+git config --global color.diff-highlight.newhighlight=green bold 22
+git config --global diff.algorithm histogram
+git config --global diff.colorMoved plain
+git config --global diff.mnemonicPrefix true
+git config --global diff.renames true
+
+# Pushes
+git config --global push.autoSetupRemote true
+git config --global push.followTags true
+
+# Fetches
+git config --global fetch.prune true
+git config --global fetch.pruneTags true
+git config --global fetch.all true
+
+# Commit
+git config --global commit.verbose true
+
 
 # Aliases
 
