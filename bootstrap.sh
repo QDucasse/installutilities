@@ -68,6 +68,13 @@ if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo ""
+echo "Install rosetta (only for Apple Silicon)?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  softwareupdate --install-rosetta --agree-to-license
+fi
+
+echo ""
 echo "Generate new ssh key?  (y/n)"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then

@@ -14,7 +14,6 @@ binaries=(
   fzf                                   # fuzzy command line finder
   git                                   # up-to-date version of git
   git-ignore                            # gitignore templates
-  ghidra                                # reverse engineering
   gnupg                                 # GNU PGP key tools
   haskell-stack                         # haskell build tool
   htop                                  # the best process monitor
