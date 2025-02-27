@@ -17,5 +17,12 @@ e_arrow "Public key:"
 cat ~/.ssh/id_ed25519.pub
 e_arrow "Add the above public key to your GitHub account!"
 
+# Add the ssh key to the keychain to avoid writing the passphrase
+(
+    echo;
+    echo '# rbenv';
+    echo 'eval "$(rbenv init -)"'
+)
+>> ~/.profile
 
 e_success "SSH key created and added to the Keychain!"
