@@ -15,6 +15,8 @@ fi
 rust_crates=(
 )
 
-cargo install "${rust_crates[@]}"
+for crate in "${rust_crates[@]}"; do
+  cargo install "$crate"
+done
 
 e_success "Main rust crates installed!"

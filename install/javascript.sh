@@ -30,6 +30,8 @@ curl -fsSL https://bun.sh/install | bash
 node_packs=(
 )
 
-bun install -g "${node_packs[@]}"
+for pack in "${node_packs[@]}"; do
+  bun install -g "$pack"
+done
 
 e_success "Main node packages installed!"

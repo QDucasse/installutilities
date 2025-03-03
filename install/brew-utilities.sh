@@ -22,13 +22,13 @@ binaries=(
   ninja                                 # build system
   nvm                                   # node version manager
   pinentry-mac                          # pops a dialog for entering passphrases for GPG
-  pyenv                                 # python versions manager
   qemu                                  # emulator
   rbenv                                 # ruby versions manager
   rustup-init                           # rust toolchain installer
   tldr                                  # man with examples
   tmux                                  # terminal multiplexer
   tree                                  # fast recursive directory listing tool
+  uv                                    # python version managers
   wget                                  # up-to-date wget
 )
 
@@ -47,7 +47,9 @@ if fzf --version; then
   ) >> ~/.zshrc
 fi
 
-brew install "${binaries[@]}"
+for binary in "${brew_binaries[@]}"; do
+  brew install "$binary"
+done
 
 brew cleanup
 

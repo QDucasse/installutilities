@@ -23,10 +23,12 @@ fi
 
 # Globally installed gems
 ruby_gems=(
-  rubocop
-  rails
+  "rubocop"
+  "rails"
 )
 
-gem install "${ruby_gems[@]}"
+for gem in "${ruby_gems[@]}"; do
+  gem install "$gem"
+done
 
 e_success "Main ruby gems installed!"
