@@ -22,6 +22,7 @@ binaries=(
   ninja                                 # build system
   nvm                                   # node version manager
   pinentry-mac                          # pops a dialog for entering passphrases for GPG
+  pyenv                                 # python versions manager
   qemu                                  # emulator
   rbenv                                 # ruby versions manager
   rustup-init                           # rust toolchain installer
