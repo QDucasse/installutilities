@@ -34,6 +34,7 @@ apps=(
   the-unarchiver
   visual-studio-code
   vlc
+  xquartz
   zotero
 )
 
